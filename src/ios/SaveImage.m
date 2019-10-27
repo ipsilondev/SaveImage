@@ -1,5 +1,6 @@
 #import "SaveImage.h"
 #import <Cordova/CDV.h>
+#import <Photos/Photos.h>
 
 @implementation SaveImage
 @synthesize callbackId;
@@ -17,7 +18,6 @@
         }
         NSLog(@"Image absolute path: %@", imgAbsolutePath);
 
-	    UIImage *image = [UIImage imageWithContentsOfFile:imgAbsolutePath];
 	    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
 	}];
 }
