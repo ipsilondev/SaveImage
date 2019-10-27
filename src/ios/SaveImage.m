@@ -11,8 +11,9 @@
 
 		UIImage *image = nil;
 		NSString *imgAbsolutePath = [command.arguments objectAtIndex:0];
-        if ([imgAbsolutePath hasPrefix:@"data:image/jpeg;base64,"]) {
-            image = [self decodeBase64ToImage: [imgAbsolutePath substringFromIndex:[@"data:image/jpeg;base64," length]]];
+		BOOL isBase64 = [command.arguments objectAtIndex:1];
+        if ([isBase64 boolValue] == YES) {
+            image = [self decodeBase64ToImage: imgAbsolutePath];
         } else {
             image = [UIImage imageWithContentsOfFile:imgAbsolutePath];
         }
