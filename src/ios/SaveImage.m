@@ -11,7 +11,7 @@
 
 		UIImage *image = nil;
 		NSString *imgAbsolutePath = [command.arguments objectAtIndex:0];
-		BOOL isBase64 = [command.arguments objectAtIndex:1];
+		BOOL *isBase64 = [command.arguments objectAtIndex:1];
         if ([isBase64 boolValue] == YES) {
             image = [self decodeBase64ToImage: imgAbsolutePath];
         } else {
